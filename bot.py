@@ -8,7 +8,7 @@ URL = "https://livescore-api.com/api-client/scores/live.json?key=Ui1fExCJ0iBWkL5
 
 
 
-#for i in range(n_matches):
+import os
     
 
 API_KEY = os.getenv('OPENAIKEY')
