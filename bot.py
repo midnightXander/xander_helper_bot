@@ -11,8 +11,8 @@ URL = "https://livescore-api.com/api-client/scores/live.json?key=Ui1fExCJ0iBWkL5
 import os
     
 
-API_KEY = os.getenv('OPENAIKEY')
-client = OpenAI(api_key=API_KEY)
+#API_KEY = os.getenv('OPENAIKEY')
+client = OpenAI(api_key='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')
 BOTUSERNAME = 'xander_helper_atp_bot'
 messages = [{'role':'system','content':'you are a cool but intelligent classmate'}]
 
@@ -45,9 +45,12 @@ def api_scores():
     for i in range(n_matches):
         temp = home_teams[i] + " " + scores[i] + " " + away_teams[i] + " "
         formatted_scores.append(temp) 
-    f ='Here are the live scores for the latest UCL matches \n\n'
-    for i in range(n_matches):
-        f = f + formatted_scores[i]+ "\n"
+    if formatted_scores == []:
+        f = 'No live UCL match at the moment'
+    else:        
+        f ='Here are the live scores for the latest UCL matches \n\n'
+        for i in range(n_matches):
+            f = f + formatted_scores[i]+ "\n"
     return f    
 
 
@@ -98,8 +101,9 @@ async def error(update:Update,context:ContextTypes.DEFAULT_TYPE):
 def main():
     print('start polling...')
 
-    TOKEN = os.getenv('BOTAPIKEY')
-    app = Application.builder().token(TOKEN).read_timeout(35).write_timeout(20).build()
+#    TOKEN = os.getenv('BOTAPIKEY')
+    TOKEN = '6941396725:AAHNbW-db31SEjvdT0fOl5DUw5CumDppmcM'
+    app = Application.builder().token(TOKEN).read_timeout(70).write_timeout(20).build()
 
     #commands
     app.add_handler(CommandHandler('start',start))
