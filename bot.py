@@ -11,8 +11,8 @@ URL = "https://livescore-api.com/api-client/scores/live.json?key=Ui1fExCJ0iBWkL5
 import os
     
 
-#API_KEY = os.getenv('OPENAIKEY')
-client = OpenAI(api_key='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')
+API_KEY = os.getenv('OPENAIKEY')
+client = OpenAI(api_key=API_KEY)
 BOTUSERNAME = 'xander_helper_atp_bot'
 messages = [{'role':'system','content':'you are a cool but intelligent classmate'}]
 
@@ -101,9 +101,9 @@ async def error(update:Update,context:ContextTypes.DEFAULT_TYPE):
 def main():
     print('start polling...')
 
-#    TOKEN = os.getenv('BOTAPIKEY')
-    TOKEN = '6941396725:AAHNbW-db31SEjvdT0fOl5DUw5CumDppmcM'
-    app = Application.builder().token(TOKEN).read_timeout(360).write_timeout(50).build()
+    TOKEN = os.getenv('BOTAPIKEY')
+    
+    app = Application.builder().token(TOKEN).build()
 
     #commands
     app.add_handler(CommandHandler('start',start))
