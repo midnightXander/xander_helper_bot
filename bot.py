@@ -99,7 +99,7 @@ def main():
     print('start polling...')
 
     TOKEN = os.getenv('BOTAPIKEY')
-    app = Application.builder().token(TOKEN).build()
+    app = Application.builder().token(TOKEN).read_timeout(30).write_timeout(30).build()
 
     #commands
     app.add_handler(CommandHandler('start',start))
