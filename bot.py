@@ -103,7 +103,7 @@ def main():
 
 #    TOKEN = os.getenv('BOTAPIKEY')
     TOKEN = '6941396725:AAHNbW-db31SEjvdT0fOl5DUw5CumDppmcM'
-    app = Application.builder().token(TOKEN).read_timeout(70).write_timeout(20).build()
+    app = Application.builder().token(TOKEN).read_timeout(360).write_timeout(50).build()
 
     #commands
     app.add_handler(CommandHandler('start',start))
